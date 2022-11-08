@@ -38,7 +38,7 @@ export async function run() {
         await actionReviewer.deleteReview(id);
       }
 
-      info('No tags found in pr 👀');
+      info("PR number " + prNumber + 'No tags found in pr 👀');
       return;
     }
 
