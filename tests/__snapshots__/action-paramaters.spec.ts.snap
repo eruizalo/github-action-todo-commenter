@@ -11,6 +11,28 @@ Object {
 }
 `;
 
+exports[`getActionParameters should return action parameters on PR 1`] = `
+Object {
+  "actor": "mock-actor",
+  "base": "master",
+  "head": "pr",
+  "owner": "mock-owner",
+  "prNumber": 10,
+  "repo": "mock-repo",
+}
+`;
+
+exports[`getActionParameters should return action parameters on PRT 1`] = `
+Object {
+  "actor": "mock-actor",
+  "base": "master",
+  "head": "pr",
+  "owner": "mock-owner",
+  "prNumber": 10,
+  "repo": "mock-repo",
+}
+`;
+
 exports[`getInputs should return all inputs 1`] = `
 Object {
   "commentTitle": "my title",

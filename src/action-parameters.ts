@@ -29,7 +29,7 @@ export function getActionParameters(ctx: Context): GetActionParams {
   const base = pull_request?.base?.ref;
   const head = pull_request?.head?.ref;
 
-  if (eventName !== 'pull_request') {
+  if (eventName !== 'pull_request' && eventName !== 'pull_request_target') {
     throw new Error('Action only supports pull requests');
   }
 

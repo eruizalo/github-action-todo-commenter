@@ -8,7 +8,7 @@ jest.mock('@actions/core', () => ({
 }));
 
 describe('getActionParameters', () => {
-  it('should return action parameters', () => {
+  it('should return action parameters on PR', () => {
     const ctx = {
       actor: 'mock-actor',
       repo: {
@@ -16,6 +16,25 @@ describe('getActionParameters', () => {
         repo: 'mock-repo'
       },
       eventName: 'pull_request',
+      payload: {
+        pull_request: {
+          number: 10,
+          base: { ref: 'master' },
+          head: { ref: 'pr' }
+        }
+      }
+    } as unknown as Context;
+
+    expect(getActionParameters(ctx)).toMatchSnapshot();
+  });
+  it('should return action parameters on PRT', () => {
+    const ctx = {
+      actor: 'mock-actor',
+      repo: {
+        owner: 'mock-owner',
+        repo: 'mock-repo'
+      },
+      eventName: 'pull_request_target',
       payload: {
         pull_request: {
           number: 10,
